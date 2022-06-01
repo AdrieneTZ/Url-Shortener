@@ -1,1 +1,26 @@
-<h1>Say hi to Mom</h1>
+<div class='card m-3' style='max-width: 540px;'>
+  <div class='card-body'>
+    <h5 class='card-title'>URL Shortener</h5>
+  </div>
+  <img
+    src='https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png'
+    class='card-img-bottom'
+    alt='...'
+  />
+</div>
+
+<div class='m-3' style='max-width: 540px;'>
+  <form action='./your-short-url' method='POST'>
+    <div class='mb-3'>
+      <label for='raw-url' class='form-label'>URL</label>
+      <input
+        name='raw-url'
+        type='text'
+        class='form-control'
+        id='raw-url'
+        placeholder='Iunpt URL here'
+      />
+    </div>
+    <button type='submit' class='btn btn-primary'>Shorten</button>
+  </form>
+</div>
