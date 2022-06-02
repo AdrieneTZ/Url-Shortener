@@ -6,6 +6,7 @@ const URL = require('../../models/url')
 
 // get POST from index.hbs
 router.post('/', (req, res) => {
+  const host = req.headers.host
   const { rawURL } = req.body
 
   URL.findOne({ rawURL }, (err, urlObj) => {
@@ -15,7 +16,7 @@ router.post('/', (req, res) => {
       // If data is in database, render shortURL.hbs
       res.render('shortURL', { shortURL: urlObj.shortURL })
     } else {
-      const shortURL = shortenURL(rawURL)
+      const shortURL = shortenURL(6, host)
       // If data is not in database, create new data
       URL.create({
         rawURL,

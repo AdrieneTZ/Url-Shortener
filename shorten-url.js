@@ -1,19 +1,21 @@
-function shortenUrl (rawUrl) {
+function shortenUrl(shortenLength, host) {
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
   const upperCaseLetters = lowerCaseLetters.toUpperCase()
   const numbers = '1234567890'
 
-  const allLettersArray = (lowerCaseLetters + upperCaseLetters + numbers).split('')
+  const allLettersArray = (lowerCaseLetters + upperCaseLetters + numbers).split(
+    ''
+  )
 
-  let shortUrl = ''
-  for (let i = 1; i <= 6; i++) {
-    shortUrl += getARandomChar(allLettersArray)
+  let str = ''
+  for (let i = 1; i <= shortenLength; i++) {
+    str += getARandomChar(allLettersArray)
   }
 
-  return rawUrl = `https://url-shortener.herokuapp.com/${shortUrl}`
+  return (shortUrl = `https://${host}/${str}`)
 }
 
-function getARandomChar (array) {
+function getARandomChar(array) {
   let randomIndex = Math.floor(Math.random() * array.length)
   return array[randomIndex]
 }
