@@ -9,14 +9,17 @@
   />
 </div>
 
-<div class='shortURL'>
-  <p>{{shortURL}}</p>
-  <button>Copy</button>
+<div>
+  <p>This is your short url : </p>
+  <a id='shortURL'>{{shortURL}}</a>
+</div>
+<div>
+  <button class='btn' id='copy-button' onclick='copy()'>Copy</button>
 </div>
 
-{{! <script>
-  //TODO: copy to response's shorenURL to clipboard const button =
-  document.querySelector('#copy'); button.addEventListener('click', function() {
-  navigator.clipboard.readText().then(text => { console.log(text) //
-  剪貼簿中的文本內容 }); });
-</script> }}
+<script>
+  function copy() { const shortURL =
+  document.getElementById('shortURL').innerText
+  navigator.clipboard.writeText(shortURL) .then(() => alert('Copied!'))
+  .catch(error => console.log(error)) }
+</script>
