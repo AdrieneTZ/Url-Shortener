@@ -7,24 +7,29 @@
     class='card-img-bottom'
     alt='...'
   />
+
+  <div class="d-flex row align-self-center m-3">
+    <div class="mb-2">
+      <p>Success! Please use this link : </p>
+      <a
+        href='{{shortURL}}'
+        target='_blank'
+        rel='noreferrer noopenner'
+        id='shortURL'
+      >{{shortURL}}</a>
+    </div>
+    <div class="d-flex row align-self-center">
+      <button class='btn' id='copy-button' onclick='copy()' style="background-color: #5b7148; color: #eef8ed">Copy</button>
+    </div>
+  </div>
 </div>
 
-<div>
-  <p>This is your short url : </p>
-  <a
-    href='{{shortURL}}'
-    target='_blank'
-    rel='noreferrer noopenner'
-    id='shortURL'
-  >{{shortURL}}</a>
-</div>
-<div>
-  <button class='btn' id='copy-button' onclick='copy()'>Copy</button>
-</div>
 
 <script>
-  function copy() { const shortURL =
-  document.getElementById('shortURL').innerText
-  navigator.clipboard.writeText(shortURL) .then(() => alert('Copied!'))
-  .catch(error => console.log(error)) }
+  function copy() {
+    const shortURL = document.getElementById('shortURL').innerText
+    navigator.clipboard.writeText(shortURL)
+      .then(() => alert('Copied!'))
+      .catch(error => console.log(error))
+  }
 </script>
