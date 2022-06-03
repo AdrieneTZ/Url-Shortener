@@ -10,17 +10,36 @@
 </div>
 
 <div class='m-3' style='max-width: 540px;'>
-  <form method='POST' action='/'>
+  <form method="POST" action="/" id='form' class='needs-validation' novalidate>
     <div class='mb-3'>
       <label for='raw-url' class='form-label'>URL</label>
       <input
         name='rawURL'
-        type='text'
+        type='url'
         class='form-control'
         id='raw-url'
         placeholder='Iuput URL here'
+        pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+        required
       />
+      <div class='invalid-feedback'>
+        Please provide a valid URL.
+      </div>
     </div>
     <button type='submit' class='btn btn-primary'>Shorten</button>
   </form>
 </div>
+
+<script>
+const form = document.querySelector('.needs-validation')
+
+  // Loop over them and prevent submission
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+</script>
