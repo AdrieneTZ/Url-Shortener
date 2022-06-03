@@ -1,4 +1,4 @@
-function shortenUrl(shortenLength, host) {
+function shortenUrl(shortenLength) {
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
   const upperCaseLetters = lowerCaseLetters.toUpperCase()
   const numbers = '1234567890'
@@ -12,7 +12,7 @@ function shortenUrl(shortenLength, host) {
     str += getARandomChar(allLettersArray)
   }
 
-  return (shortUrl = `https://${host}/${str}`)
+  return str
 }
 
 function getARandomChar(array) {
