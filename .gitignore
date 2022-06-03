@@ -15,4 +15,3 @@ node_modules
 
 # all
 .env
-package-lock.json
