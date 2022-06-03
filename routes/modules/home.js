@@ -32,9 +32,18 @@ router.post('/', (req, res) => {
   })
 })
 
-// router.get('/:shortURL', (req, res) => {
-//   const shortURL = req.params.shortURL
-//   console.log(shortURL)
-// })
+router.get('/:shortURL', (req, res) => {
+  const short = req.params.shortURL
+  const host = req.headers.host
+  const shortURL = `http://${host}/${short}`
+
+  URL.findOne({ shortURL }, (error, urlObj) => {
+    if (error) res.render('error')
+
+    if (urlObj) {
+      res.redirect(urlObj.rawURL)
+    }
+  })
+})
 
 module.exports = router
